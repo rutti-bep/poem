@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS poem.blogs (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(128) NOT NULL,
   `text` MEDIUMTEXT NOT NULL,
   `created_at` DATETIME NOT NULL,
-  PRIMARY KEY (`id`)
+   PRIMARY KEY (`id`)
   );
