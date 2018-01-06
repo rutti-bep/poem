@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>createBlog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <header>
+        <% include ../partials/header %>
+  </header>
+  <body>
+    <form action="/create/blog" method="post">
+      <p>title :<input type="text" name="title" size="40"></p>
+      <p>text : <textarea name="text" rows="10" cols="80"></textarea></p>
+      <input type="submit" value="送信">
+    </form>
+  </body>
+</html>
