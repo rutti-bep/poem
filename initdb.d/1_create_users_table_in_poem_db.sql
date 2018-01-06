@@ -4,4 +4,3 @@ CREATE TABLE IF NOT EXISTS poem.users (
   `created_at` DATETIME NOT NULL,
   PRIMARY KEY (`id`)
   );
-
