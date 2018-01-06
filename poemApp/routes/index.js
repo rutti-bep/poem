@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var SELECT = require("../test");
+var DBController = require("../controller/DBController");
+var dbcontroller = new DBController();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  SELECT((val)=>{
-    console.log(val)
-    res.render('index', { title: 'Express' });
-  });
+  dbcontroller.SelectBlogLists(0,10,(blogLists)=>{
+    console.log(blogLists);
+    res.render('pages/index', { title: 'rutti-poem',blogLists:blogLists});
+  })
 });
 
 module.exports = router;

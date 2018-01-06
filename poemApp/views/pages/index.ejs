@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <header>
+        <% include ../partials/header %>
+  </header>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% blogLists.forEach(function(value){ %>
+    <a href=<%= "/blogs/"+value.id %> > <%= value.id %>: <%= value.created_at %> : <%= value.title %><br></a>
+    <% });%>
+
+  </body>
+</html>

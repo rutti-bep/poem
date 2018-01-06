@@ -9,7 +9,8 @@ class DBController {
       user : 'root',
       password : 'password',
       port : 3306,
-      database: 'poem'
+      database: 'poem',
+      timezone: 'jst'
     });
     this.connection.connect(function(err) {
       if (err) {
@@ -21,10 +22,12 @@ class DBController {
     });
   }
 
-  CreateBlogs(title,text,callback){
+  InsertBlogs(titleValue,textValue,callback){
     let nowTime = dateformat(new Date(), 'yyyy-mm-dd hh:mm:ss');
     console.log(nowTime)
-    this.connection.query("INSERT into blogs set ?;",{title:"title",text:"てすとー",created_at:nowTime},(err, rows, fields)=>{
+    let values = {"title": titleValue,"text": textValue,"created_at": nowTime}
+    console.log(values)
+    this.connection.query("INSERT into blogs set ?;",values,(err, rows, fields)=>{
       if (err) throw err;
 
       console.log('The solution is: ', rows);
@@ -40,6 +43,16 @@ class DBController {
       callback(rows); 
     });
   }
+  
+  SelectBlogLists(id,size,callback){
+    this.connection.query('SELECT id,title,created_at from blogs WHERE id >= ? LIMIT ?;',[id,size], (err, rows, fields) => {
+      if (err) throw err;
+
+      console.log('The solution is: ', rows);
+      callback(rows); 
+    });
+  }
+  
 }
 
 module.exports = DBController;
