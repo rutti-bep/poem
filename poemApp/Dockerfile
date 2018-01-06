@@ -1,6 +1,6 @@
 FROM node:latest
 
-COPY poemApp /src/poemApp
+COPY . /src/poemApp
 WORKDIR /src/poemApp
 
 RUN npm install
