@@ -2,6 +2,6 @@
  - blogです！！
 
 ## 環境
- - rails
+ - node.js
  - MySQL
  - Docker
