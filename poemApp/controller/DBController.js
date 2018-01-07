@@ -23,7 +23,7 @@ class DBController {
   }
 
   InsertBlogs(titleValue,textValue,callback){
-    let nowTime = dateformat(new Date(), 'yyyy-mm-dd hh:mm:ss');
+    let nowTime = dateformat(new Date(), 'yyyy-mm-dd HH:MM:ss');
     console.log(nowTime)
     let values = {"title": titleValue,"text": textValue,"created_at": nowTime}
     console.log(values)
