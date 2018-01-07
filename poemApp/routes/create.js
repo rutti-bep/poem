@@ -11,11 +11,9 @@ router.get('/blog', function(req, res, next) {
 router.post('/blog',(req, res)=>{
   var title = req.body.title;
   var text = req.body.text;
-  console.log(title);
-  console.log(text)
   dbcontroller.InsertBlogs(title,text,(rows)=>{
     console.log(rows);
-    res.send('POST is sended.'+rows);
+    res.redirect('/blogs/'+rows.insertId);
   })
 })
 
