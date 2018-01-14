@@ -20,7 +20,8 @@ class HTMLController {
 
   LinkParser(text){
     return new Promise((resolve,reject)=>{
-      var linkReplacedTest = text.replace(/^(http|https)\:\/\/.*$/g,(match)=>{
+      var linkReplacedTest = text.replace(/(http|https)\:\/\/.*(\s|$)/g,(match)=>{
+        // TODO : titleとってくるようにしたいね？
         console.log(match);
         return "<a href="+match+">"+match+"</a>";
       });
