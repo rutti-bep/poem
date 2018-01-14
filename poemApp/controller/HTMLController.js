@@ -6,6 +6,7 @@ class HTMLController {
   AllParse(text,callback){
     this.XSSParser(text)
       .then(this.LinkParser)
+      .then(this.NewLineParser)
       .then(callback)
       .catch((err)=>{
         throw err 
@@ -27,6 +28,12 @@ class HTMLController {
       });
       resolve(linkReplacedTest);
 
+    })
+  }
+
+  NewLineParser(text){
+    return new Promise((resolve,reject)=>{
+      resolve(text.replace(/\r\n/g, "<br>"))
     })
   }
 }
