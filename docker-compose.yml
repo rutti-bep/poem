@@ -4,6 +4,7 @@ services:
     depends_on:
       - db
     build: poemApp
+    restart: always
     ports:
       - "3000:3000"
     networks:
@@ -11,10 +12,12 @@ services:
       - backend
   db:
     image: mysql:latest
+    restart: always
     command: mysqld --character-set-server utf8mb4 --collation-server utf8mb4_unicode_ci
     volumes:
       - db_data:/var/lib/mysql
-      - ./initdb.d/:/docker-entrypoint-initdb.d
+      - ./DB/initdb.d/:/docker-entrypoint-initdb.d
+      - ./DB/mysql.cnf:/etc/mysql/conf.d/mysql_.cnf
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: poem

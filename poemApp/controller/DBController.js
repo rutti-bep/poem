@@ -10,7 +10,8 @@ class DBController {
       password : 'password',
       port : 3306,
       database: 'poem',
-      timezone: 'jst'
+      timezone: 'jst',
+      charset: 'utf8mb4'
     });
     this.connection.connect(function(err) {
       if (err) {
