@@ -45,8 +45,8 @@ class DBController {
     });
   }
   
-  SelectBlogLists(id,size,callback){
-    this.connection.query('SELECT id,title,created_at from blogs WHERE id >= ? LIMIT ?;',[id,size], (err, rows, fields) => {
+  SelectBlogLists(size,callback){
+    this.connection.query('SELECT id,title,created_at FROM `blogs` ORDER BY `id` DESC LIMIT ?;',[size], (err, rows, fields) => {
       if (err) throw err;
 
       console.log('The solution is: ', rows);
