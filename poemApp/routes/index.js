@@ -5,7 +5,7 @@ var dbcontroller = new DBController();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  dbcontroller.SelectBlogLists(0,10,(blogLists)=>{
+  dbcontroller.SelectBlogLists(10,(blogLists)=>{
     console.log(blogLists);
     res.render('pages/index', { title: 'rutti-poem',blogLists:blogLists});
   })
