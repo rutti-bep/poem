@@ -10,7 +10,7 @@ var index = require('./routes/index');
 var blogs = require('./routes/blogs');
 var create = require('./routes/create')
 
-var tokens = require('./tokens.json');
+var configs = require('./configs.json');
 //var users = require('./routes/users');
 
 var app = express();
@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.all('/create/*', basicAuth(function(user, password) {
-  return user === tokens.user && password === tokens.password;
+  return user === configs.user && password === configs.password;
 }));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
