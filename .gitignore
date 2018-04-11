@@ -1,4 +1,7 @@
 node_modules
 .DS_Store
 yarn.lock
-tokens.json
+configs.json
+server_crt.pem
+server_key.pem
+server_csr.pem
